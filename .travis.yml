@@ -28,7 +28,7 @@ jobs:
     if: type = push AND branch = master
     # set env to avoid deploy matrix
     env: TEST=helm
-    script: ./ci/deploy.sh
+    script: ./ci/deploy.sh $encrypted_c6b45058ffe8_key $encrypted_c6b45058ffe8_iv
 
 env:
   matrix:
