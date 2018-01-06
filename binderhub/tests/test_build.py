@@ -15,7 +15,7 @@ from .utils import async_requests
 @pytest.mark.remote
 def test_build(app, needs_build, needs_launch, always_build, slug):
     build_url = f"{app.url}/build/{slug}"
-    r = yield async_requests.get(build_url, stream=True)
+    r = yield async_requests.get(build_url, stream=True, timeout=15)
     r.raise_for_status()
     events = []
     for f in async_requests.iter_lines(r):
